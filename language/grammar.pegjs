@@ -67,6 +67,7 @@ stop = 'stop'       { return({ type: types.stop    } )}
 start = 'start'     { return({ type: types.start   } )}
 restart = 'restart' { return({ type: types.restart } )}
 help = 'help'       { return({ type: types.help    } )}
+exit = 'exit'       { return({ type: types.exit    } )}
 
 // Dynamic marks
 pianississimo = '.ppp'
@@ -151,7 +152,7 @@ Instruction = instruction:(EnvironmentSetup / VariableAssignment / Scheduling) {
 
 
 
-EnvironmentSetup =  stop / start / restart / help / Time / Tempo
+EnvironmentSetup =  stop / start / restart / help / exit / Time / Tempo
 
 
 

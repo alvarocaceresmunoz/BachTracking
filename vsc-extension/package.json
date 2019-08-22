@@ -18,19 +18,20 @@
 				"title": "Hello World"
 			}
 		],
-    "keybindings": [
-      {
-        "command": "extension.helloWorld",
-        "key":"ctrl-alt-R",
-        "when":"editorTextFocus"
-      }
-    ]
+		"keybindings": [
+			{
+				"command": "extension.helloWorld",
+				"key": "ctrl-alt-R",
+				"when": "editorTextFocus"
+			}
+		]
 	},
 	"scripts": {},
 	"devDependencies": {
 		"@types/vscode": "^1.32.0"
 	},
 	"dependencies": {
-		"axios": "^0.19.0"
+		"axios": "^0.19.0",
+		"vscode": "^1.1.36"
 	}
 }

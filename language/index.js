@@ -59,6 +59,7 @@ function writeLog() {
 }
 
 process.on('exit', function () {
+  console.log('exiting gracefully')
   writeLog()
 });
 

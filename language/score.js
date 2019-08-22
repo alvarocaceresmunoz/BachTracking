@@ -5,6 +5,8 @@ const { pretty } = require('./debugUtils.js')
 const { octaveModifiers } = require('./octaveModifiers.js')
 const { runtimeError } = require('./runtimeError.js')
 const defaults = require('./defaults.js')
+var Bar = require('./bar.js')
+
 
 
 
@@ -15,63 +17,6 @@ var playing = false
 var instruments = {
   'piano': new Piano()
 }
-
-
-class Bar {
-  constructor() {
-    this.instruments = {}
-  }
-
-  getMusics() {
-    return this.instruments
-  }
-
-  getMusic(instrument) {
-    return this.instruments[instrument]
-  }
-
-  hasInstrument(instrument) {
-    return this.instruments.hasOwnProperty(instrument)
-  }
-
-  setInstruments(instrument) {
-    this.instruments.append(instrument)
-  }
-
-  setMusicForInstrument(instrument, music) {
-    this.instruments[instrument] = music
-  }
-}
-
-/*
-bars[1] = new Bar()
-bars[1].setMusicForInstrument('piano', [
-  {
-    pitch: 0,
-    octave: 0,
-    rhythmFigure: null
-  },
-  {
-    pitch: 1,
-    octave: 1,
-    rhythmFigure: null
-  },
-  {
-    pitch: 6,
-    octave: 6,
-    rhythmFigure: null
-  },
-])
-
-bars[3] = new Bar()
-bars[3].setMusicForInstrument('bass', [
-  {
-    pitch: 333,
-    octave: 333,
-    rhythmFigure: null
-  }
-])
-*/
 
 function isInstrumentDefined(instrument) {
   return instruments.hasOwnProperty(instrument)
@@ -121,6 +66,10 @@ function handleInstruction(instruction) {
         instruction.instruction.musicInstruction)
       console.log(`Music scheduled`)
       break
+    case types.exit:
+      console.log('Closing BachTracking...')
+      exit()
+      break
   }
 }
 
@@ -153,6 +102,10 @@ function restart() {
 */
 function help() {
   error('TODO')
+}
+
+function exit() {
+  process.exit(0)
 }
 
 function setTimeSignature(newTimeSignature) {

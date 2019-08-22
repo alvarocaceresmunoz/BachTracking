@@ -13,7 +13,8 @@ const types = {
   stop:                   11,
   start:                  12,
   restart:                13,
-  help:                   14
+  help:                   14,
+  exit:                   15
 }
 
 module.exports = { types }
