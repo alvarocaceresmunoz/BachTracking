@@ -1,0 +1,24 @@
+{
+  "name": "001",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel ./ --out-dir ./dist/ --ignore ./grammar.pegjs,./node_modules,./.babelrc,./package.json,./npm-debug.log,./dist/ --copy-files",
+    "start": "npm run build && node ./dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "easymidi": "^1.0.1",
+    "express": "^4.17.1",
+    "ohm": "^0.10.4",
+    "pegjs": "^0.10.0",
+    "webmidi": "^2.3.3"
+  }
+}
