@@ -4,6 +4,7 @@ const scales = require('./scales.js')
 const { runtimeError } = require('./runtimeError.js')
 const { pretty } = require('./debugUtils.js')
 const { performance } = require('perf_hooks')
+const { types } = require('./types.js')
 
 const WAIT_TIME = 200
 const STOP_TIME = 100
@@ -26,7 +27,7 @@ function play(pitch) {
   })
 }
 
-function off(pitch) {
+function release(pitch) {
   MIDIOutput.send('noteoff', {
     note: pitch,
     velocity: 0,
@@ -125,6 +126,10 @@ function getRhythmDuration(rhythmNumber, wholeNoteDuration) {
   return wholeNoteDuration / rhythmNumber
 }
 
+function getMIDIPitch(pitch, octave, accidental) {
+  return pitch + 12*(octave+1) + accidental
+}
+
 /**
  * @TODO include dots
 */
@@ -146,11 +151,19 @@ function schedule(barNumber, instrument, music) {
 
     let e = s + undotRhythm(music[i].rhythmFigure, wholeNoteDuration)
 
-    scheduledMusic[i] = {
-      MIDIPitch: music[i].pitch + 12*music[i].octave + music[i].accidental,
-      startTime: s,
-      endTime: e
-    }
+    scheduledMusic[i] = music[i].type == types.note ?
+      {
+        type: music[i].type,
+        MIDIPitch: getMIDIPitch(music[i].pitch, music[i].octave, music[i].accidental),
+        startTime: s,
+        endTime: e
+      }
+      :
+      {
+        type: music[i].type,
+        startTime: s,
+        endTime: e
+      }
   }
 
   scheduledMusic.forEach(note => {
@@ -159,19 +172,23 @@ function schedule(barNumber, instrument, music) {
 
     timeouts.push(
       setTimeout(
-        () => play(note.MIDIPitch),
+        () => {
+          if (note.type == types.note)
+            play(note.MIDIPitch)
+        },
         note.startTime*1000 - (performance.now()-scoreStartTime)
       )
     )
 
-    // if (i != scheduledMusic.length) {
      timeouts.push(
        setTimeout(
-         () => off(note.MIDIPitch),
+         () => {
+           if (note.type == types.note)
+             release(note.MIDIPitch)
+         },
          note.endTime*1000 - (performance.now()-scoreStartTime)
        )
      )
-    // }
   })
 }
 

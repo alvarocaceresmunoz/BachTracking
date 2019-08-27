@@ -5,7 +5,7 @@ const { pretty } = require('./debugUtils.js')
 const { octaveModifiers } = require('./octaveModifiers.js')
 const { runtimeError } = require('./runtimeError.js')
 const defaults = require('./defaults.js')
-var Bar = require('./bar.js')
+var { Bar } = require('./bar.js')
 
 
 
@@ -17,6 +17,79 @@ var playing = false
 var instruments = {
   'piano': new Piano()
 }
+
+bars[3] = new Bar()
+bars[3].setMusicForInstrument('piano', [
+  {
+    "type": 0,
+    "pitch": 0,
+    "octave": {
+      "type": 1,
+      "value": 0
+    },
+    "accidental": 0,
+    "rhythmFigure": {
+      "number": 4,
+      "dot": 0
+    }
+  },
+  {
+    "type": 0,
+    "pitch": 0,
+    "octave": {
+      "type": 0,
+      "value": 6
+    },
+    "accidental": 0,
+    "rhythmFigure": {
+      "number": 4,
+      "dot": 0
+    }
+  },
+  {
+    "type": 1,
+    "pitch": 0,
+    "octave": {
+      "type": 1,
+      "value": 0
+    },
+    "accidental": 0,
+    "rhythmFigure": {
+      "number": 4,
+      "dot": 0
+    }
+  },
+  {
+    "type": 1,
+    "pitch": 0,
+    "octave": {
+      "type": 1,
+      "value": 0
+    },
+    "accidental": 0,
+    "rhythmFigure": {
+      "number": 4,
+      "dot": 0
+    }
+  },
+])
+
+bars[5] = new Bar()
+bars[5].setMusicForInstrument('bass', [
+  {
+    "type": 0,
+    "pitch": 0,
+    "octave": {
+      "type": 1,
+      "value": 0
+    },
+    "accidental": 0,
+    "rhythmFigure": {
+      "number": 4,
+      "dot": 0
+    }
+  }
+])
 
 function isInstrumentDefined(instrument) {
   return instruments.hasOwnProperty(instrument)
@@ -101,7 +174,7 @@ function restart() {
  * @TODO provide documentation
 */
 function help() {
-  error('TODO')
+  runtimeError('TODO')
 }
 
 function exit() {
@@ -168,25 +241,26 @@ function scheduleMusicAt(bar, musicInstruction) {
  */
 function getMusicAbsoluteOctave(bar, instrument, music) {
   // Notice that "first note" here means "first note that is not a rest"
-
   let firstNote
+  let lastOctave
   for(let i=0; i<music.length; i++) {
-    if (music[1].type == types.note) {
+    if (music[i].type == types.note) {
       firstNote = i
       break
     }
   }
+  console.log(`firstNote: ${pretty(music[firstNote])}`)
 
   // 1) If the first note has either no octave or an octave increment (') /
   // decrement (,), set that note's octave to an absolute octave
-  if (music[0].octave.type == octaveModifiers.relative) {
+  if (music[firstNote].octave.type == octaveModifiers.relative) {
     // 1.1) If the score (before the specified bar) doesn't contain any
     // previous music for that instrument, set the octave of the first note to
     // the default octave for that instrument.
-    if (!bars.slice(0,bar).some(b => b.hasInstrument(instrument))) {
-      music[0].octave.value = applyOctaveModifier(
+    if (!bars.slice(0, bar).some(b => b.hasInstrument(instrument))) {
+      music[firstNote].octave.value = applyOctaveModifier(
         instruments[instrument].getStartOctave(),
-        music[0].octave.value
+        music[firstNote].octave.value
       )
     }
 
@@ -195,38 +269,59 @@ function getMusicAbsoluteOctave(bar, instrument, music) {
     // the last note written for that instrument (before the specified bar).
     else {
       for (let i=bar-1; i>=0; i--) {
+        console.log(`bar ${i}`)
         if (bars[i] && bars[i].hasInstrument(instrument)) {
-          let lastMusic = bars[i].getMusic(instrument)
+          console.log(`bar ${i} has instrment ${instrument}`)
+          let lastMusicForInstrument = bars[i].getMusic(instrument)
 
-          music[0].octave.value = applyOctaveModifier(
-            lastMusic[lastMusic.length-1].octave,
-            music[0].octave.value
-          )
+          for (let j=lastMusicForInstrument.length-1; j>=0; j--) {
+            if (lastMusicForInstrument[j].type == types.note) {
+              music[firstNote].octave.value = applyOctaveModifier(
+                lastMusicForInstrument[j].octave.value,
+                music[firstNote].octave.value
+              )
+              break
+            }
+          }
           break
         }
       }
     }
   }
 
+  lastOctave = music[firstNote].octave.value
+  console.log(`lastOctave: ${pretty(lastOctave)}`)
+
   // 2) Once the octave for the first note in the list is written, if there is
   // any note in the list without an octave, set it to an octave relative to the
   // previous note (starting from the first note in the list).
-  for (let i=1; i<music.length; i++) {
-    if (music[i].octave.type == octaveModifiers.relative) {
+  for (let i=firstNote+1; i<music.length; i++) {
+    if (music[i].type == types.note &&
+      music[i].octave.type == octaveModifiers.relative) {
       music[i].octave.value = applyOctaveModifier(
-        music[i-1].octave.value,
+        lastOctave,
         music[i].octave.value
       )
+      lastOctave = music[i].octave.value
+      console.log(lastOctave)
     }
   }
 
-  let absoluteMusic = music.map(note => note = {
-    type:         note.type,
-    pitch:        note.pitch,
-    octave:       note.octave.value,
-    accidental:   note.accidental,
-    rhythmFigure: note.rhythmFigure
-  })
+  let absoluteMusic = music.map(note => note = note.type == types.note ?
+    {
+      type:         note.type,
+      pitch:        note.pitch,
+      octave:       note.octave.value,
+      accidental:   note.accidental,
+      rhythmFigure: note.rhythmFigure
+    } :
+    {
+      type:         note.type,
+      rhythmFigure: note.rhythmFigure
+    }
+  )
+
+  console.log(`absoluteMusic:\n${pretty(absoluteMusic)}`)
 
   return absoluteMusic
 }
@@ -240,6 +335,7 @@ function getMusicAbsoluteOctave(bar, instrument, music) {
 */
 function applyOctaveModifier(octaveValue, octaveModifier) {
   let absoluteOctave = octaveValue + octaveModifier
+  console.log(`[applyOctaveModifier] value: ${octaveValue}, modifier: ${octaveModifier}`)
   return absoluteOctave >= 0 ? absoluteOctave : 0
 }
 

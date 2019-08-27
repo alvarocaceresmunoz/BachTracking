@@ -24,55 +24,43 @@ var log = {
 app.post('/', (req, res) => {
   var code = req.body.text.trim()
   // console.log(`[SERVER] Received text:\n${code}`)
-  log.textEditorCode.push({time: Date.now(), text: req.body.text })
+  log.textEditorCode.push({ time: Date.now(), text: req.body.text })
 
   var parsedCode
   try {
     parsedCode = parser.parse(code)
-    log.parsedCode.push({time: Date.now(), code: parsedCode})
-    console.log(pretty(log))
+    log.parsedCode.push({ time: Date.now(), code: parsedCode})
     try {
       score.handleCode(parsedCode)
     } catch(runtimeError) {
-      log.errors.push({time: Date.now(), error: runtimeError })
-      console.log(pretty(log))
+      log.errors.push({
+        time: Date.now(),
+        error: {
+          name: runtimeError.name,
+          message: runtimeError.message
+        }})
       res.status(666).send(runtimeError)
     }
   } catch(syntaxError) {
-    log.errors.push({time: Date.now(), error: syntaxError })
-    console.log(pretty(log))
+    log.errors.push({
+      time: Date.now(),
+      error: {
+        name: syntaxError.name,
+        message: syntaxError.message
+      }
+    })
     res.status(667).send(syntaxError)
   }
-
-  // apply the result from parser to the score TODO
 
   // res.end("yes")
 })
 
 function writeLog() {
-  const jsonContent = JSON.stringify({a:1,b:2,c:3}, null, 2)
-
-  fs.writeFile('./experiment.json', jsonContent, 'utf8', err => {
-    if (err) console.error(err)
-    else     console.log('Experiment file has been saved.')
-  })
+  try {
+    fs.writeFileSync('./experiment.json', JSON.stringify(log, 'utf8', 2))
+  } catch(error) {
+    console.log('error writing json')
+  }
 }
 
-process.on('exit', function () {
-  console.log('exiting gracefully')
-  writeLog()
-});
-
-// catch ctrl+c event and exit normally
-process.on('SIGINT', function () {
-  console.log('Ctrl-C...');
-  writeLog()
-  process.exit(2);
-});
-
-//catch uncaught exceptions, trace, then exit normally
-process.on('uncaughtException', function(e) {
-  console.log('Uncaught Exception...');
-  writeLog()
-  process.exit(99);
-});
+['exit','SIGINT'].forEach(e => process.on(e, () => writeLog()))

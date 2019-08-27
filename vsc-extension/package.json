@@ -1,26 +1,34 @@
 {
-	"name": "helloworld-minimal-sample",
-	"description": "Minimal HelloWorld example for VS Code",
+	"name": "bachtracking",
+	"description": "Control the BachTracking programming language from Visual Studio Code",
 	"version": "0.0.1",
-	"publisher": "vscode-samples",
-	"repository": "https://github.com/Microsoft/vscode-extension-samples/helloworld-minimal-sample",
+	"author": {
+		"name":"Álvaro Cáceres"
+	},
 	"engines": {
 		"vscode": "^1.32.0"
 	},
+	"keywords": ["live coding", "classical music", "bachtracking", "jazz", "music"],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.startBachTracking"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "extension.runCode",
+				"title": "Run Code",
+				"category": "BachTracking"
+			},
+			{
+				"command": "extension.startBachTracking",
+				"title": "Start BachTracking",
+				"category": "BachTracking"
 			}
 		],
 		"keybindings": [
 			{
-				"command": "extension.helloWorld",
+				"command": "extension.runCode",
 				"key": "ctrl-alt-R",
 				"when": "editorTextFocus"
 			}

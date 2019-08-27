@@ -1,0 +1,145 @@
+{
+  "textEditorCode": [
+    {
+      "time": 1566676403738,
+      "text": "tempo 4 200"
+    },
+    {
+      "time": 1566676404939,
+      "text": "start"
+    },
+    {
+      "time": 1566676408169,
+      "text": "at bar4 piano melody r c r d' r eb, r f'"
+    },
+    {
+      "time": 1566676448847,
+      "text": "exit"
+    }
+  ],
+  "parsedCode": [
+    {
+      "time": 1566676403745,
+      "code": [
+        {
+          "type": 8,
+          "instruction": {
+            "type": 10,
+            "rhythmFigure": {
+              "number": 4,
+              "dot": 0
+            },
+            "bpm": 200
+          }
+        }
+      ]
+    },
+    {
+      "time": 1566676404940,
+      "code": [
+        {
+          "type": 8,
+          "instruction": {
+            "type": 12
+          }
+        }
+      ]
+    },
+    {
+      "time": 1566676408173,
+      "code": [
+        {
+          "type": 8,
+          "instruction": {
+            "type": 7,
+            "timeMarker": {
+              "type": 5,
+              "bar": 4
+            },
+            "musicInstruction": {
+              "instrument": "piano",
+              "music": {
+                "type": 3,
+                "notes": [
+                  {
+                    "type": 1,
+                    "pitch": null,
+                    "octave": null,
+                    "accidental": null
+                  },
+                  {
+                    "type": 0,
+                    "pitch": 0,
+                    "octave": {
+                      "type": 1,
+                      "value": 2
+                    },
+                    "accidental": 0
+                  },
+                  {
+                    "type": 1,
+                    "pitch": null,
+                    "octave": null,
+                    "accidental": null
+                  },
+                  {
+                    "type": 0,
+                    "pitch": 2,
+                    "octave": {
+                      "type": 1,
+                      "value": 3
+                    },
+                    "accidental": 0
+                  },
+                  {
+                    "type": 1,
+                    "pitch": null,
+                    "octave": null,
+                    "accidental": null
+                  },
+                  {
+                    "type": 0,
+                    "pitch": 4,
+                    "octave": {
+                      "type": 1,
+                      "value": 2
+                    },
+                    "accidental": -1
+                  },
+                  {
+                    "type": 1,
+                    "pitch": null,
+                    "octave": null,
+                    "accidental": null
+                  },
+                  {
+                    "type": 0,
+                    "pitch": 5,
+                    "octave": {
+                      "type": 1,
+                      "value": 3
+                    },
+                    "accidental": 0
+                  }
+                ],
+                "rhythmFigures": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "time": 1566676448847,
+      "code": [
+        {
+          "type": 8,
+          "instruction": {
+            "type": 15
+          }
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
