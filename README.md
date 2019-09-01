@@ -1,2 +1,2 @@
 # BachTracking
-A live coding programming language for musicians
+A live coding programming language for classical musicians
