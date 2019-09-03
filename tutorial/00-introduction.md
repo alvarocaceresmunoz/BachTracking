@@ -1,4 +1,8 @@
-# Introduction... what the heck is BachTracking?
+# 0. Introduction
+
+## Wait, what's ...?
+
+### BachTracking
 
 BachTracking is a programming language for making music!
 
@@ -6,15 +10,13 @@ BachTracking is part of my MSc research project, _"BachTracking: a Live Coding P
 
 In case you haven't got the pun yet, it is a portamteau of [Bach](https://en.wikipedia.org/wiki/Johann_Sebastian_Bach) (a classical music composer whose work inspired the creation of this language!) and [backtracking](https://en.wikipedia.org/wiki/Backtracking) (an algorithm used in computer science; I only used it because it went well with Bach xd).
 
-# Wait, what's ...?
-
-## Programming
+### Programming
 
 We use languages to communicate. Right now we are "talking" in English.
 
 Well, when we want to talk to a computer, we can't just use English. We must talk in a language that both the computer and we can understand. Such a language is called a programming language. We program to tell the computer what we want it to do. In the case of BachTracking, we use this language to tell the computer what music we want it to make.
 
-## Live Coding
+### Live Coding
 
 [Live coding](https://en.wikipedia.org/wiki/Live_coding) is telling your computer to make music live, on the fly. Live coding can be used for visuals or anything else as well. Making music on the fly means that with live coding, you can use your computer to improvise music!
 
@@ -31,13 +33,13 @@ It may take you a while to get the hang of it; in the end learning live coding i
 2. Abstraction: like maths, programming allows you to take something you understand, put it in a box, and use it everywhere you want without ever worrying again about what was inside of that box. That's abstraction. Imagine you put a long melody you have written in that box: you no longer have to write that melody note by note, you just use that box which is easier to handle.
 3. Carpe diem: live coding is improvisation, so it is alive. You may be playing at bar 1, and next thing you know you are at bar 5. So try to plan things out and use abstraction as much as you can, but... _you gotta be fast!_.
 
-## Only classical music?
+## Only for classical music?
 
 No! You can use BachTracking for making other styles of music, but it was designed with classical music (and similar styles) in first place.
 
 The reason for this is that there exist other live coding languages (languages you should definitely check out, like [SuperCollider](https://supercollider.github.io), [SonicPi](https://sonic-pi.net), [Tidal](https://tidalcycles.org/index.php/Welcome)...), but they work best for making electronic music. You can change samples, synthesizers, etc., but it is hard to think of it if you come from styles like classical, jazz... BachTracking syntax resembles terms used for these music styles, so that it becomes a language that musicians can easily "speak". Also, BachTracking makes you think of code as some sort of score, which is easier to wrap your head around if you are used to reading music.
 
-# Installation
+## Installation
 
 I'm working on that! For now the software can be installed in particular operating systems with specific software installed, but it can be hard for novice experts.
 
