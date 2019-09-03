@@ -17,9 +17,9 @@ Right now you can use BachTracking together with a text editor called Visual Stu
 
 Here it is a list of shortcuts you can use:
 - `Ctrl-R`: **R**un your code
-- `Ctrl-T`: s**t**art playing your score
-- `Ctrl-S`: **s**top playing your score
-- `Ctrl-E`: **e**xit
+- `Ctrl-T`: s**T**art playing your score
+- `Ctrl-S`: **S**top playing your score
+- `Ctrl-E`: **E**xit
 
 ## Basic instructions
 
