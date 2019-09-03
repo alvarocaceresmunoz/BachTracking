@@ -69,6 +69,12 @@ If you don't write any octave or duration, the note will get it from the previou
 
 Melodies are written with the word `melody` followed by a list of notes. For example: `melody c# d'4. eb o8 f g8`.
 
+You can put repetitions inside your melody with an `x` and the number of times you want to repeat. If you want to repeat more than one note you have to surround them with parentheses. Try nesting repetitions inside repetitions! Like this:
+`melody cx2 ((d e)x3 f g)x4 a bx5`
+This melody would be played like this:
+`melody c c d e d e d e f g d e d e d e f g d e d e d e f g d e d e d e f g a b b b b b`
+Now that's saving time huh?
+
 You can use `mel` instead of `melody` as a shortcut.
 
 ### Play it!
