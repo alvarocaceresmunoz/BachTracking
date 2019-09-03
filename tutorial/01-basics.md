@@ -1,4 +1,4 @@
-# Basics
+# 1. Basics
 
 In this chapter you will learn the basic stuff you can make with BachTracking
 
