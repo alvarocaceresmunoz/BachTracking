@@ -2,7 +2,7 @@
 
 In this chapter you will learn the basic stuff you can make with BachTracking
 
-## Workflow
+## 1.1. Workflow
 
 Using BachTracking normally goes like this:
 1. Type text on a text editor (like notepad)
@@ -11,7 +11,7 @@ Using BachTracking normally goes like this:
 
 In BachTracking, you tell your computer to write music to some sort of virtual *score*. When you tell your computer 
 
-## Shortcuts 
+## 1.2. Shortcuts 
 
 Right now you can use BachTracking together with a text editor called Visual Studio. I have created a list of shortcuts in this editor, so that you can send instructions to BachTracking.
 
@@ -21,7 +21,7 @@ Here it is a list of shortcuts you can use:
 - `Ctrl-S`: **S**top playing your score
 - `Ctrl-E`: **E**xit
 
-## Basic instructions
+## 1.3. Basic instructions
 
 ### Start
 `start`: same as pressing `Ctrl-T`
@@ -49,7 +49,7 @@ The number on the left follows typical rhythmic notation: 2 is a half note, 4 is
 
 If you don't write any, the default tempo is 4=60.
 
-## Music syntax
+## 1.4. Music syntax
 
 ### Notes
 
