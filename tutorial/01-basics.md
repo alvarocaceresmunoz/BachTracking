@@ -6,7 +6,7 @@ In this chapter you will learn the basic stuff you can make with BachTracking
 
 Using BachTracking normally goes like this:
 1. Type text on a text editor (like notepad)
-2. Press `Ctrl-R`
+2. Select the text and press `Ctrl-R`
 3. Enjoy!
 
 In BachTracking, you tell your computer to write music to some sort of virtual *score*. When you tell your computer 
