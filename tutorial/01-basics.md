@@ -16,10 +16,10 @@ In BachTracking, you tell your computer to write music to some sort of virtual *
 Right now you can use BachTracking together with a text editor called Visual Studio. I have created a list of shortcuts in this editor, so that you can send instructions to BachTracking.
 
 Here it is a list of shortcuts you can use:
-- `Ctrl-R`: *R*un your code
-- `Ctrl-T`: s-*t*art playing your score
-- `Ctrl-S`: *s*top playing your score
-- `Ctrl-E`: *e*xit
+- `Ctrl-R`: **R**un your code
+- `Ctrl-T`: s**t**art playing your score
+- `Ctrl-S`: **s**top playing your score
+- `Ctrl-E`: **e**xit
 
 ## Basic instructions
 
