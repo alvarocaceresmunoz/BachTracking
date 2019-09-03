@@ -63,7 +63,7 @@ You can set the octave with `o` and the octave number before the note, like this
 
 Duration is written like in time signatures or tempo. For example, `c2.` means C note with the duration of a dotted half note.
 
-If you don't write any octave or duration, the note will get it from the previous note. So if you wrie `o3 c8 d e`, D and E will be in octave 3 and will last for an 8th note.
+If you don't write any octave or duration, the note will get it from the previous note. So if you wrie `o3 c8 d e`, D and E will be in octave 3 and will last for an 8th note, just like C.
 
 ### Melody
 
@@ -73,7 +73,7 @@ You can use `mel` instead of `melody` as a shortcut.
 
 ### Play it!
 
-In order to play music, you first have to start playing the score. Then tell you write the bar where you want to play your music, the instrument to play it, and the music to play.
+In order to play music, you first have to start playing the score (`start` or `Ctrl-T`). Then you write the bar where you want to play your music, the instrument to play it, and the music to play.
 
 For instance:
 `at bar3 piano melody c e d f g`
@@ -81,6 +81,6 @@ Plays the melody C D E F G at bar 3 with the instrument piano.
 
 You can either write `bar3` or `bar 3` (separated by spaces).
 
-Notice you can only have the instrument `piano` available for now.
+Notice only the instrument `piano` is available for now.
 
 Next: [Transformations](./02-transformations)
