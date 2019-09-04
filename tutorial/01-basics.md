@@ -65,6 +65,8 @@ Duration is written like in time signatures or tempo. For example, `c2.` means C
 
 If you don't write any octave or duration, the note will get it from the previous note. So if you wrie `o3 c8 d e`, D and E will be in octave 3 and will last for an 8th note, just like C.
 
+Rests are written with the letter `r`, followed by a duration (optional). For example, `r4.` is a dotted quarter rest.
+
 ### Melody
 
 Melodies are written with the word `melody` followed by a list of notes. For example: `melody c# d'4. eb o8 f g8`.
