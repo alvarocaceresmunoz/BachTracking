@@ -89,4 +89,4 @@ You can either write `bar3` or `bar 3` (separated by spaces).
 
 Notice only the instrument `piano` is available for now.
 
-Next: [Transformations](./02-transformations)
+Next: [Writing long music](./02-writing-long-music.md)
