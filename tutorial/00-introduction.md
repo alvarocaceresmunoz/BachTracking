@@ -22,7 +22,7 @@ Well, when we want to talk to a computer, we can't just use English. We must tal
 
 If you find this idea of improvising with a computer a bit weird, think of traditional instruments, like a piano or a guitar. These are machines we use to produce sound on command. Now think of a computer as an instrument... it's also a machine that you can use for many things, including... making sound!
 
-It is true that live coding is different from improvising with a traditional music instrument. With traditional instruments, playing a single note is almost instantaneous: You press a key, or strike a drum, and your instrument starts making sound. With live coding, playing a single note takes more time: you must press several keys to write an instruction, and you muse use either your keyboard or your mouse to tell the computer to start playing music.
+It is true that live coding is different from improvising with a traditional music instrument. With traditional instruments, playing a single note is almost instantaneous: You press a key, or strike a drum, and your instrument starts making sound. With live coding, playing a single note takes more time: you must press several keys to write an instruction, and you must use either your keyboard or your mouse to tell the computer to start playing music.
 
 "Then what's the point of live coding?", you may ask. "If it takes so long to write a single note, why bothering?"
 
