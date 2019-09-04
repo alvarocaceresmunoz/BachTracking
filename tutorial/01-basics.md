@@ -9,7 +9,7 @@ Using BachTracking normally goes like this:
 2. Select the text and press `Ctrl-R`
 3. Enjoy!
 
-In BachTracking, you tell your computer to write music to some sort of virtual *score*. When you tell your computer 
+In BachTracking, you tell your computer to write music to some sort of virtual *score*.
 
 ## 1.2. Shortcuts 
 
@@ -63,7 +63,7 @@ You can set the octave with `o` and the octave number before the note, like this
 
 Duration is written like in time signatures or tempo. For example, `c2.` means C note with the duration of a dotted half note.
 
-If you don't write any octave or duration, the note will get it from the previous note. So if you wrie `o3 c8 d e`, D and E will be in octave 3 and will last for an 8th note, just like C.
+If you don't write any octave or duration, the note will get it from the previous note. So if you write `o3 c8 d e`, D and E will be in octave 3 and will last for an 8th note, just like C.
 
 Rests are written with the letter `r`, followed by a duration (optional). For example, `r4.` is a dotted quarter rest.
 
