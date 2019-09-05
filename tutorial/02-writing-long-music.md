@@ -90,4 +90,4 @@ v2 = mel c# r d#16 (e# f#)x2 g#
 at bar1 piano J v1 v2
 ```
 
-Next: [MIDI control](./03-midi-control.md)
+Next: [MIDI input](./03-midi-input.md)
