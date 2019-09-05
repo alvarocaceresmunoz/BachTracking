@@ -5,11 +5,13 @@ In this chapter you will learn the basic stuff you can make with BachTracking
 ## 1.1. Workflow
 
 Using BachTracking normally goes like this:
-1. Type text on a text editor (like notepad)
-2. Select the text and press `Ctrl-R`
-3. Enjoy!
+1. Type your music on a text editor, like notepad
+2. Tell the score to start playing
+3. Write your music in the score (run it)
 
-In BachTracking, you tell your computer to write music to some sort of virtual *score*.
+BachTracking keeps track of the music in your piece in some sort of virtual _score_. In your text editor, you can freely type and write as many ideas as you like. Once you decide what you want to write to the score and when, you select the text you want and you write it to the score. If the score is playing, it will eventually reach the bar where you have written your music, and it will play it.
+
+In other words: the text editor is your color palette; the score is the canvas; running your code is telling someone what colors you want to use in your canvas; and the score playing is someone taking the brush and painting the canvas for you.
 
 ## 1.2. Shortcuts 
 
@@ -17,17 +19,17 @@ Right now you can use BachTracking together with a text editor called Visual Stu
 
 Here it is a list of shortcuts you can use:
 - `Ctrl-R`: **R**un your code
-- `Ctrl-T`: s**T**art playing your score
-- `Ctrl-S`: **S**top playing your score
+- `Ctrl-S`: **S**tart playing the score
+- `Ctrl-shift-S`: **S**top playing the score
 - `Ctrl-E`: **E**xit
 
 ## 1.3. Basic instructions
 
 ### Start
-`start`: same as pressing `Ctrl-T`
+`start`: same as pressing `Ctrl-S`
 
 ### Stop
-`stop`: same as pressing `Ctrl-S`
+`stop`: same as pressing `Ctrl-shift-S`
 
 ### Exit
 `exit`: same as pressing `Ctrl-E`
