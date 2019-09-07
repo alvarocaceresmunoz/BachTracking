@@ -19,7 +19,7 @@ Intervals can be
 - augmented: `A`
 - diminished: `d`
 
-Instead of transposing with intervals, you can transpose with semitones. `transpose melody c d e f g 12` would transpose the melody _C D E F G_ 12 semitones, that is, one octave higher.
+Instead of transposing with intervals, you can transpose with semitones. `transpose 12 melody c d e f g` would transpose the melody _C D E F G_ 12 semitones, that is, one octave higher.
 
 You can add `ascending` after the interval to make the transposition ascending. For example, `transpose melody c d e f g P4 ascending` would transpose the melody _C D E F G_ an ascending P4. You can make the transposition descending with `descending` , for instance `transpose melody c d e f g 6 descending`. Omitting this will make the tranposition ascending.
 
