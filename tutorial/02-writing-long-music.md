@@ -8,7 +8,7 @@ Transformations change music you give to them. You can transform either melodies
 
 ### Transposition
 
-`transpose melody c d e f g P4` transposes the melody _C D E F G_ a perfect 4th, that is, _F G A Bb C_.
+`transpose P4 melody c d e f g` transposes the melody _C D E F G_ a perfect 4th, that is, _F G A Bb C_.
 
 You can use intervals from unison (`1`) to 13th (`13th`).
 
@@ -53,9 +53,9 @@ You can use `retrInv` or `RI` instead of `retrogradeInverse` for short.
 
 `mirror melody c d e f g` returns the melody _C D E F G_ mirrored, that is, _C D E F G F E D C_.
 
-You can add `mirrorLast` at the end to make a full mirror of the melody. For example, `mirror melody c d e f g mirrorLast` returns  _C D E F G G F E D C_ (i.e., the _G_ is also mirrored).
+You can add `mirrorLast` to make a full mirror of the melody. For example, `mirror mirrorLast melody c d e f g` returns  _C D E F G G F E D C_ (the _G_ is also mirrored).
 
-You can use `mir` or `M` instead of `mirror` for short.
+You can use `mir` or `M` instead of `mir` for short.
 
 ### Join
 
