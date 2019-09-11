@@ -57,7 +57,7 @@ If you don't write any, the default tempo is 4=60.
 
 Notes are defined by its pitch. Optionally, you can add accidental, octave and duration.
 
-A pitch can be written with American (`C`) or solfège (`do`) notation. It can either start with upper (`c`, `do`) or lower case (`C`, `do`).
+A pitch can be written with American notation, in lower case: `c d e f g a b`.
 
 Accidentals are sharp (`#`) or flat (`b`). You can add as many as you want. For example, `c##` would be C double-sharp.
 
